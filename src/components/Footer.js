@@ -1,5 +1,5 @@
 import React from "react";
-import Superlogo from "../assets/Superlogo.png";
+import Logo from "../assets/logo.png";
 import Linkdin from "../assets/linkdin.png";
 import Twitter from "../assets/Twitter.png";
 import Github from "../assets/Github.png";
@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="col">
             <Link to="/">
               <img
-                src={Superlogo}
+                src={Logo}
                 alt="..."
                 style={{ maxHeight: "auto", maxWidth: "48%" }}
               />

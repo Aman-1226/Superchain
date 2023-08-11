@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Workpage from "./Workpage";
 import Protocolpage from "./Protocolpage";
 import Networkpage from "./Networkpage";
@@ -7,7 +7,7 @@ import Tech from "../assets/Tech.jpg";
 import Whiteback from "../assets/Whiteback.jpg";
 import Black from "../assets/black.jpg";
 import Bold from "../assets/Bold.jpeg"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Mainpage = () => {
   const Background1 = {
@@ -31,11 +31,22 @@ const Mainpage = () => {
     margin: "0px",
   };
 
+  const location = useLocation();
+
+  useEffect(() => {
+    // Set the default title when the main page is loaded
+    if (location.pathname === '/') {
+      document.title = 'MegaLink Networks';
+    }
+  }, [location]);
+
   const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate("/Getaccess");
+    document.title = "Get Access";
+    navigate("/Getaccess")
   };
+
 
   return (
     <>
@@ -55,6 +66,7 @@ const Mainpage = () => {
           <button
             type="button"
             class="btn btn-dark"
+            onClick={handleRedirect}
             style={{
               borderWidth: "2px",
               borderColor: "goldenrod",
